@@ -8,6 +8,8 @@
 
 namespace syfmt {
 
+namespace details {
+
 struct value {
   enum {
     NONE,
@@ -87,11 +89,13 @@ auto doPrint(const char *formatString, ArgStore<Args...> argStore) {
   std::fwrite(buffer, sizeof(char), strlen(buffer), stdout);
 }
 
+} // namespace details
+
 template <typename... Args>
 auto print(const char *formatString, Args... args) -> void {
-  const auto argStore = ArgStore<Args...>(args...);
+  const auto argStore = details::ArgStore<Args...>(args...);
 
-  doPrint(formatString, argStore);
+  details::doPrint(formatString, argStore);
 }
 
 }  // namespace syfmt
