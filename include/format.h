@@ -91,13 +91,6 @@ auto doPrint(const char *formatString, ArgStore<Args...> argStore) {
 
 } // namespace details
 
-template <typename... Args>
-auto print(const char *formatString, Args... args) -> void {
-  const auto argStore = details::ArgStore<Args...>(args...);
-
-  details::doPrint(formatString, argStore);
-}
-
 }  // namespace syfmt
 
 #endif  // _FORMAT_H_

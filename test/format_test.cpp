@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "format.h"
+#include "syfmt.h"
 
 TEST(syfmt, syfmt) {
   EXPECT_NO_THROW(syfmt::print("hello {}\n", "world"));
