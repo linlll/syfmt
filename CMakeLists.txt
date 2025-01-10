@@ -4,5 +4,11 @@ project(syfmt)
 
 add_library(syfmt format.cpp)
 
-add_executable(format_test format_test.cpp)
-target_link_libraries(format_test syfmt)
+option(BUILD_TESTS "Build all tests" ON)
+
+if(BUILD_TESTS)
+  enable_testing()
+  add_executable(format_test format_test.cpp)
+  target_link_libraries(format_test syfmt)
+  add_test(format_test format_test)
+endif()
