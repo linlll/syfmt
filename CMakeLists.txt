@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 
 project(syfmt)
 
-add_library(syfmt format.cpp)
-
 option(BUILD_TESTS "Build all tests" ON)
+
+add_library(syfmt format.cpp)
 
 if(BUILD_TESTS)
   enable_testing()
