@@ -4,7 +4,6 @@
 #include <string>
 
 namespace syfmt {
-
 namespace details {
 
 struct value {
@@ -49,7 +48,6 @@ struct value {
 };
 
 } // namespace details
-
 }  // namespace syfmt
 
 #endif // _VALUE_H_

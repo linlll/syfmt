@@ -14,7 +14,4 @@ auto print(const char *formatString, Args... args) -> void {
 
 } // namespace syfmt
 
-
-
-
 #endif // _SYFMT_H_

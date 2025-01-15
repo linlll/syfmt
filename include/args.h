@@ -4,7 +4,6 @@
 #include "value.h"
 
 namespace syfmt {
-
 namespace details {
 
 template <typename... Args>
@@ -16,7 +15,6 @@ struct ArgStore {
 };
 
 } // namespace details
-
 }  // namespace syfmt
 
 #endif // _ARGS_H_

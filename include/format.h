@@ -9,7 +9,6 @@
 #include "args.h"
 
 namespace syfmt {
-
 namespace details {
 
 template <typename... Args>
@@ -43,7 +42,6 @@ auto doPrint(const char *formatString, ArgStore<Args...> argStore) {
 }
 
 } // namespace details
-
 }  // namespace syfmt
 
 #endif  // _FORMAT_H_
