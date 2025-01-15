@@ -7,9 +7,9 @@ namespace syfmt {
 
 template <typename... Args>
 auto print(const char *formatString, Args... args) -> void {
-  const auto argStore = details::ArgStore<Args...>(args...);
+  details::Formatter formatter(formatString, args...);
 
-  details::doPrint(formatString, argStore);
+  formatter.print();
 }
 
 } // namespace syfmt
