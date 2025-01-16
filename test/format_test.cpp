@@ -2,8 +2,30 @@
 
 #include "syfmt.h"
 
-TEST(syfmt, syfmt) {
+TEST(syfmt, empty) {
+  EXPECT_NO_THROW(syfmt::print("\n"));
+}
+
+TEST(syfmt, char) {
+  EXPECT_NO_THROW(syfmt::print("The upper character of {} is {}\n", 'a', toupper('a')));
+}
+
+TEST(syfmt, integral) {
+  EXPECT_NO_THROW(syfmt::print("The price fo the shirt is {} punds and {} pence\n", 9, 15));
+}
+
+TEST(syfmt, float_point) {
+  float height = 1.7, weight = 66.6;
+  double bmi = weight / height / height;
+  EXPECT_NO_THROW(
+    syfmt::print("My height is {} meters, and my weight is {} kilogram, then my BMI is {}\n", height, weight, bmi)
+  );
+}
+
+TEST(syfmt, cstring) {
   EXPECT_NO_THROW(syfmt::print("hello {}\n", "world"));
-  EXPECT_NO_THROW(syfmt::print("{}{}{}{}{}\n", 'h', 'e', 'l', 'l', 'o'));
-  EXPECT_NO_THROW(syfmt::print("{} {} {} {} {}\n", 'a', 123, (float)1.23, (double)1.23, "c-style string"));
+}
+
+TEST(syfmt, mixed) {
+  EXPECT_NO_THROW(syfmt::print("My name is {}, I like running very much. Now my personal best of {} kilometer is {} minutes and {} seconds.\n", "LIN", 5, 22, 30));
 }
