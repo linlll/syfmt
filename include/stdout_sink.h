@@ -11,7 +11,7 @@ public:
   StdoutSink();
 
 public:
-  void sink_it(const char *buffer, size_t size);
+  auto sink_it(const char *buffer, size_t size) -> void;
 
 private:
 

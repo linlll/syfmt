@@ -12,7 +12,7 @@ public:
   Sink(FILE *fp);
 
 public:
-  virtual void sink_it(const char* buffer, size_t size) = 0;
+  virtual auto sink_it(const char* buffer, size_t size) -> void = 0;
 
 protected:
   FILE *fp_;

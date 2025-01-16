@@ -4,6 +4,7 @@
 #include "format.h"
 #include "stdout_sink.h"
 #include "file_sink.h"
+#include "register.h"
 
 namespace syfmt {
 

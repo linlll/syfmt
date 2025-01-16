@@ -18,10 +18,10 @@ syfmt::details::FileSink::~FileSink() {
   std::fclose(fp_);
 }
 
-void syfmt::details::FileSink::sink_it(const char* buffer, size_t size) {
+auto syfmt::details::FileSink::sink_it(const char* buffer, size_t size) -> void {
   std::fwrite(buffer, 1, size, fp_);
 }
 
-void syfmt::details::FileSink::setFp(FILE* fp) {
+auto syfmt::details::FileSink::setFp(FILE* fp) -> void {
   fp_ = fp;
 }

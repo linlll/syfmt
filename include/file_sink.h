@@ -13,10 +13,10 @@ public:
   ~FileSink();
 
 public:
-  void sink_it(const char *buffer, size_t size);
+  auto sink_it(const char *buffer, size_t size) -> void;
 
 private:
-  void setFp(FILE *fp);
+  auto setFp(FILE *fp) -> void;
 
 };
 
