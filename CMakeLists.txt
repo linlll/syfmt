@@ -9,7 +9,11 @@ include_directories(include)
 set(
   SRCS
   src/args.cpp
+  src/common.cpp
+  src/file_sink.cpp
   src/format.cpp
+  src/sink.cpp
+  src/stdout_sink.cpp
   src/syfmt.cpp
   src/value.cpp
 )

@@ -7,6 +7,7 @@
 #include <string>
 
 #include "args.h"
+#include "sink.h"
 
 namespace syfmt {
 namespace details {
@@ -15,8 +16,8 @@ template <typename... Args>
 class Formatter {
 public:
   Formatter() = delete;
-  Formatter(const char *formatString, Args... args)
-    : formatString_(formatString), argStore_{args...} { }
+  Formatter(Sink *sink, const char *formatString, Args... args)
+    : sink_(sink), formatString_(formatString), argStore_{args...} { }
 
 public:
   auto print() -> void {
@@ -45,12 +46,13 @@ public:
       }
     }
 
-    std::fwrite(buffer, sizeof(char), strlen(buffer), stdout);
+    sink_->sink_it(buffer, strlen(buffer));
   }
 
 private:
   const char *formatString_;
   ArgStore<Args...> argStore_;
+  Sink *sink_;
 };
 
 } // namespace details
