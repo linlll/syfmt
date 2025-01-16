@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(syfmt)
 
 option(SYFMT_BUILD_TESTS "Build all tests" ON)
-option(SYFMT_BUILD_SHARED "Build shared library" ON)
+option(SYFMT_BUILD_SHARED "Build shared library" OFF)
 
 include_directories(include)
 

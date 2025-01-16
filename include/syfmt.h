@@ -4,17 +4,18 @@
 #include "format.h"
 #include "stdout_sink.h"
 #include "file_sink.h"
-#include "register.h"
+#include "registry.h"
 
 namespace syfmt {
 
 template <typename... Args>
 auto print(const char *formatString, Args... args) -> void {
-  // details::StdoutSink *sink = new details::StdoutSink();
-  details::FileSink *sink = new details::FileSink("./test.txt", "a+");
-  details::Formatter formatter(sink, formatString, args...);
+  static details::Registry registry;
 
-  formatter.print();
+  // details::FileSink *sink = new details::FileSink("./test.txt", "w+");
+  // registry.setSink(sink);
+
+  registry.print(formatString, args...);
 }
 
 } // namespace syfmt
