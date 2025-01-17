@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 
+if(NOT TARGET syfmt)
+  find_package(syfmt REQURIED)
+endif()
+
 find_package(Threads REQUIRED)
 
 include_directories(
@@ -8,5 +12,5 @@ include_directories(
 )
 
 add_executable(format_test format_test.cpp googletest/src/gtest_main.cc googletest/src/gtest-all.cc)
-target_link_libraries(format_test PRIVATE syfmt Threads::Threads)
+target_link_libraries(format_test PUBLIC syfmt::syfmt Threads::Threads)
 add_test(format_test format_test)
