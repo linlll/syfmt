@@ -3,7 +3,7 @@
 
 template <typename... Args>
 auto syfmt::details::Registry::print(const char *formatString, Args... args) -> void {
-  details::Formatter formatter(sink_, formatString, args...);
+  details::Formatter<Args...> formatter(sink_, formatString, args...);
 
   formatter.print();
 }

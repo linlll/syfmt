@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 
 project(syfmt)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+
 option(SYFMT_BUILD_TESTS "Build all tests" ON)
 option(SYFMT_BUILD_SHARED "Build shared library" ON)
 

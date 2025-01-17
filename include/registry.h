@@ -8,14 +8,18 @@ namespace syfmt {
 namespace details {
 
 class Registry {
-public:
-  Registry();
 
 public:
   template <typename... Args>
   auto print(const char *formatString, Args... args) -> void;
 
   auto setSink(Sink *sink) -> void;
+
+  static auto getInstance() -> Registry*;
+
+private:
+  Registry();
+  ~Registry();
 
 private:
   Sink *sink_;

@@ -5,18 +5,16 @@
 #include "stdout_sink.h"
 #include "file_sink.h"
 #include "registry.h"
+#include "sink.h"
 
 namespace syfmt {
 
 template <typename... Args>
 auto print(const char *formatString, Args... args) -> void {
-  static details::Registry registry;
-
-  // details::FileSink *sink = new details::FileSink("./test.txt", "w+");
-  // registry.setSink(sink);
-
-  registry.print(formatString, args...);
+  details::Registry::getInstance()->print(formatString, args...);
 }
+
+auto setSink(details::Sink *sink) -> void;
 
 } // namespace syfmt
 

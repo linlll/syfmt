@@ -29,3 +29,9 @@ TEST(syfmt, cstring) {
 TEST(syfmt, mixed) {
   EXPECT_NO_THROW(syfmt::print("My name is {}, I like running very much. Now my personal best of {} kilometer is {} minutes and {} seconds.\n", "LIN", 5, 22, 30));
 }
+
+TEST(syfmt, file_sink) {
+  syfmt::details::FileSink *sink = new syfmt::details::FileSink("./test.txt", "w+");
+  syfmt::setSink(sink);
+  EXPECT_NO_THROW(syfmt::print("This is a test.\n"));
+}
